@@ -1,3 +1,5 @@
+import javax.tools.JavaCompiler
+
 plugins {
     id 'java-library'
 }
@@ -7,11 +9,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation(
-            "com.codeborne:selenide:6.19.1",
-            "org.junit.jupiter:junit-jupiter:5.10.0",
-            'org.slf4j:slf4j-simple:2.0.7'
-    )
+    testImplementation ()
+
+
+}
+
+tasks.withType(JavaCompile) {
+    options.encodinf = 'UTF-8'
 }
 
 test {
