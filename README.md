@@ -1,2 +1,4 @@
 # base_java_hw
-helo,qa.guru
+helo everyone,qa.guru
+
+:)
