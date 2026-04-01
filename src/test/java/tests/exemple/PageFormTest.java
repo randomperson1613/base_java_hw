@@ -3,6 +3,7 @@ package tests.exemple;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Conditional;
 import org.junit.jupiter.api.Test;
+import testData.TestData;
 
 import java.io.File;
 
@@ -11,14 +12,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class PageFormTest extends TestConfig{
+
     @Test
     void positiveForm() {
         open ("https://app.qa.guru/automation-practice-form/");
         $("[data-testid='ClearIcon']").click();
-        $("input[data-testid='firstName']").setValue("Drake");
-        $("input[data-testid='lastName']").setValue("Lower");
-        $("input[data-testid='email']").setValue("plackplackkutac@mail.com");
-        $("input[data-testid='phone']").setValue("3334445555");
+        $("input[data-testid='firstName']").setValue(TestData.firstName);
+        $("input[data-testid='lastName']").setValue(TestData.lastName);
+        $("input[data-testid='email']").setValue(TestData.email);
+        $("input[data-testid='phone']").setValue(TestData.phone);
         $("div[class=\"MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb\"]").click();
         $("[data-value ='Russian']").click();
         $("input[value='Male']").click();
