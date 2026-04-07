@@ -1,7 +1,4 @@
 package tests.exemple;
-
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Conditional;
 import org.junit.jupiter.api.Test;
 import testData.TestData;
 
@@ -48,7 +45,7 @@ public class PageFormTest extends TestConfig{
     void ResetButtom() {
         open ("https://app.qa.guru/automation-practice-form/");
         $("[data-testid='ClearIcon']").click();
-        $("input[data-testid='firstName']").setValue("Drake");
+        $("input[data-testid='firstName']").setValue((TestData.firstName));
         $("span[class='MuiTouchRipple-root css-w0pj6f']").scrollTo();
         $("button[class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-173njfa']").click();
         $("input[data-testid='firstName']").shouldNotHave(text("Drake"));
