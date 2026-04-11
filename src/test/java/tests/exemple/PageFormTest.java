@@ -2,6 +2,7 @@ package tests.exemple;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import testData.TestData;
 
 import java.io.File;
@@ -46,25 +47,17 @@ public class PageFormTest extends TestBase {
         $("button[class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-lm5zpm']").click();
         $("h4[class='MuiTypography-root MuiTypography-h4 css-rq8zac']").shouldHave(text("Thank you for submitting the form\n"));
 
-
-
-
-        $("[class='MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1gya3ze']").shouldHave(text("Drake"));
-        $("[class='MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap css-1gya3ze']").shouldHave(text("Lower"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("plackplackkutac@mail.com"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("Female"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("+1 333 444 5555\n"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("12/12/1993"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("Arts"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("Music"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("50"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("Russian"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("Качан"));
-        $("[class='MuiTypography-root MuiTypography-body1 css-1qye57c']").shouldHave(text("43321174-68799a9f1df8a.jpg"));
-
-
-
-
+        $(By.xpath("//p[text()='firstName']/following::p[1]")).scrollTo().shouldBe(visible).shouldHave(text("Drake"));
+        $(By.xpath("//p[text()='lastName']/following::p[1]")).shouldHave(text("Lower"));
+        $(By.xpath("//p[text()='email']/following::p[1]")).shouldHave(text("plackplackkutac@mail.com"));
+        $(By.xpath("//p[text()='phone']/following::p[1]")).shouldHave(text("+1 333 444 5555"));
+        $(By.xpath("//p[text()='dateOfBirth']/following::p[1]")).shouldHave(text("12/12/1993"));
+        $(By.xpath("//p[text()='subjects']/following::p[1]")).shouldHave(text("Arts"));
+        $(By.xpath("//p[text()='hobbies']/following::p[1]")).shouldHave(text("Music"));
+        $(By.xpath("//p[text()='slider']/following::p[1]")).shouldHave(text("50"));
+        $(By.xpath("//p[text()='language']/following::p[1]")).shouldHave(text("Russian"));
+        $(By.xpath("//p[text()='address']/following::p[1]")).shouldHave(text("Качан"));
+        $(By.xpath("//p[text()='file']/following::p[1]")).shouldHave(text("43321174-68799a9f1df8a.jpg"));
 
 
     }
