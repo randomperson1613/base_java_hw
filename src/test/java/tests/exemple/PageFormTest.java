@@ -1,16 +1,12 @@
 package tests.exemple;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import testData.TestData;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static testData.TestData.*;
 
