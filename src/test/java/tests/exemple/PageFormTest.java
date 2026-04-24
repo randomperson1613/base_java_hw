@@ -12,8 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static testData.TestData.email;
-import static testData.TestData.lastName;
+import static testData.TestData.*;
 
 
 public class PageFormTest extends TestBase {
@@ -22,7 +21,7 @@ public class PageFormTest extends TestBase {
     void positiveForm() {
         open (baseUrl+"/automation-practice-form/");
         $("[data-testid='ClearIcon']").click();
-        $("input[data-testid='firstName']").setValue(TestData.firstName);
+        $("input[data-testid='firstName']").setValue(firstName);
         $("input[data-testid='lastName']").setValue(lastName);
         $("input[data-testid='email']").setValue(email);
         $("input[data-testid='phone']").setValue(TestData.phone);
@@ -42,21 +41,21 @@ public class PageFormTest extends TestBase {
         $("div[class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-adornedEnd css-hnugqc']").click();
         $("input[data-testid='dateOfBirth']").click();
         $("input[data-testid='dateOfBirth']").sendKeys("12121993");
-         $("input[type='file']").uploadFromClasspath("43321174-68799a9f1df8a.jpg");
+        $("input[type='file']").uploadFromClasspath("43321174-68799a9f1df8a.jpg");
         $("span[class='MuiTouchRipple-root css-w0pj6f']").scrollTo();
         $("button[class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-lm5zpm']").click();
         $("h4[class='MuiTypography-root MuiTypography-h4 css-rq8zac']").shouldHave(text("Thank you for submitting the form\n"));
 
-        $(By.xpath("//p[text()='firstName']/following::p[1]")).scrollTo().shouldBe(visible).shouldHave(text("Drake"));
-        $(By.xpath("//p[text()='lastName']/following::p[1]")).shouldHave(text("Lower"));
-        $(By.xpath("//p[text()='email']/following::p[1]")).shouldHave(text("plackplackkutac@mail.com"));
-        $(By.xpath("//p[text()='phone']/following::p[1]")).shouldHave(text("+1 333 444 5555"));
-        $(By.xpath("//p[text()='dateOfBirth']/following::p[1]")).shouldHave(text("12/12/1993"));
-        $(By.xpath("//p[text()='subjects']/following::p[1]")).shouldHave(text("Arts"));
-        $(By.xpath("//p[text()='hobbies']/following::p[1]")).shouldHave(text("Music"));
+        $(By.xpath("//p[text()='firstName']/following::p[1]")).scrollTo().shouldBe(visible).shouldHave(text(firstName));
+        $(By.xpath("//p[text()='lastName']/following::p[1]")).shouldHave(text(lastName));
+        $(By.xpath("//p[text()='email']/following::p[1]")).scrollTo().shouldHave(text(TestData.email));
+        $(By.xpath("//p[text()='phone']/following::p[1]")).shouldHave(text(phone));
+        $(By.xpath("//p[text()='dateOfBirth']/following::p[1]")).shouldHave(text(dateOfbirth));
+        $(By.xpath("//p[text()='subjects']/following::p[1]")).shouldHave(text(subject));
+        $(By.xpath("//p[text()='hobbies']/following::p[1]")).shouldHave(text(hobbies));
         $(By.xpath("//p[text()='slider']/following::p[1]")).shouldHave(text("50"));
-        $(By.xpath("//p[text()='language']/following::p[1]")).shouldHave(text("Russian"));
-        $(By.xpath("//p[text()='address']/following::p[1]")).shouldHave(text("Качан"));
+        $(By.xpath("//p[text()='language']/following::p[1]")).shouldHave(text(language));
+        $(By.xpath("//p[text()='address']/following::p[1]")).shouldHave(text(address));
         $(By.xpath("//p[text()='file']/following::p[1]")).shouldHave(text("43321174-68799a9f1df8a.jpg"));
 
 
@@ -65,10 +64,10 @@ public class PageFormTest extends TestBase {
     void resetButtom() {
         open (baseUrl+"/automation-practice-form/");
         $("[data-testid='ClearIcon']").click();
-        $("input[data-testid='firstName']").setValue((TestData.firstName));
+        $("input[data-testid='firstName']").setValue((firstName));
         $("span[class='MuiTouchRipple-root css-w0pj6f']").scrollTo();
         $("button[class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-173njfa']").click();
-        $("input[data-testid='firstName']").shouldNotHave(text("Drake"));
+        $("input[data-testid='firstName']").shouldNotHave(text(firstName));
         System.out.println("ds");
     }
 
@@ -87,8 +86,6 @@ public class PageFormTest extends TestBase {
         $("[data-testid='ClearIcon']").click();
         $("input[data-testid='firstName']").setValue("Brhgfyjhfvjhbhjhiukkhjujb");
         $("p[class='MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-a3adt4']").shouldHave(text("First Name must be less than 15 symbols long"));
-
-
 
 
 
